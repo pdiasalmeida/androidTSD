@@ -1,9 +1,7 @@
 androidTrafficSignDetector
 ==========================
 
-# Build Base Project
-
-## Environment setup for Android development with OpenCV
+## Environment setup
 
 Further instructions to setup the developing environment can be found [here](http://docs.opencv.org/doc/tutorials/introduction/android_binary_package/android_dev_intro.html).
 
