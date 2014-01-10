@@ -5,7 +5,7 @@ include $(CLEAR_VARS)
 #OPENCV_CAMERA_MODULES:=off
 #OPENCV_INSTALL_MODULES:=off
 #OPENCV_LIB_TYPE:=SHARED
-include /home/paulo/OpenCV4Android/OpenCV-2.4.6-android-sdk/sdk/native/jni/OpenCV.mk
+include /home/paulo/OpenCV-2.4.8-android-sdk/sdk/native/jni/OpenCV.mk
 
 LOCAL_SRC_FILES  := MyTrafficSignDetector.cpp NativeTrafficSignDetector.cpp
 LOCAL_C_INCLUDES += $(LOCAL_PATH)

@@ -7,10 +7,12 @@ import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -25,7 +27,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2
     private static final Scalar SIGN_RECT_COLOR = new Scalar(255, 0, 0, 255);
 
     private Mat mRgba;
-    private Mat mGray;
     
     private NativeTrafficSignDetector mNativeDetector;    
 	private CameraBridgeViewBase mOpenCvCameraView;
@@ -78,7 +79,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2
     public void onResume()
     {
         super.onResume();
-        OpenCVLoader.initAsync( OpenCVLoader.OPENCV_VERSION_2_4_6, this, mLoaderCallback );
+        OpenCVLoader.initAsync( OpenCVLoader.OPENCV_VERSION_2_4_8, this, mLoaderCallback );
     }
 
     public void onDestroy()
@@ -89,20 +90,17 @@ public class MainActivity extends Activity implements CvCameraViewListener2
 
     public void onCameraViewStarted( int width, int height )
     {
-        mGray = new Mat();
         mRgba = new Mat();
     }
 
     public void onCameraViewStopped()
     {
-        mGray.release();
         mRgba.release();
     }
 
     public Mat onCameraFrame( CvCameraViewFrame inputFrame )
     {
         mRgba = inputFrame.rgba();
-        //mGray = inputFrame.gray();
 
         MatOfRect signs = new MatOfRect();
         if( mNativeDetector != null )
