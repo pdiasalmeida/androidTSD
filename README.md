@@ -1,4 +1,4 @@
-androidTrafficSignDetector
+OpenCV Android-ndk Sample
 ==========================
 
 ## Environment setup
